@@ -45,7 +45,7 @@ http://localhost/estudiantes-mapa/index.php?accion=estudiantes
 **GET (por código):**
 
 ```
-http://localhost/estudiantes-mapa/index.php?accion=estudiantes&codigo=CAMBIAR-CODIGO
+http://localhost/estudiantes-mapa/index.php?accion=estudiantes&codigo=SIS10093072
 ```
 
 **POST (registrar):** enviar los campos `nombre`, `apellido`, `edad`, `codigo` y `carrera` como `form-data` o `x-www-form-urlencoded`.

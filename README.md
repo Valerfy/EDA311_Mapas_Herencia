@@ -1,106 +1,72 @@
-# Gestión de estudiantes con mapas y herencia en PHP (MVC)
+# EDA311_Mapas_Herencia
 
-**Asignatura:** EDA-311 Estructura de Datos
+## Gestión de estudiantes con mapas y herencia en PHP
 
-## Descripción y objetivo
-
-Aplicación en PHP que registra y consulta estudiantes mediante peticiones GET y POST. Los estudiantes se almacenan en una estructura tipo mapa (arreglo asociativo) cuya clave es el código del estudiante. Aplica herencia (`Estudiante` hereda de `Persona`), encapsulamiento (atributos privados con getters) y tipos estrictos (`declare(strict_types=1);`), con el patrón Modelo-Vista-Controlador.
-
-El estudiante inicial se define en `models/MapaEstudiantes.php` y está disponible al ejecutar la aplicación. Los estudiantes nuevos se guardan en `data/estudiantes.json` para que persistan entre peticiones.
+Aplicación web desarrollada en PHP para el registro y consulta de estudiantes utilizando mapas y herencia.
 
 ## Requisitos
 
-- XAMPP con PHP 8.0 o superior y Apache.
-- Navegador web (opcionalmente Postman).
+- XAMPP instalado.
+- PHP 8 o superior.
+- Navegador web.
+- Git (opcional, para clonar el repositorio).
 
-## Instalación y ejecución en XAMPP
+## Pasos para ejecutar el proyecto
 
-1. Copiar la carpeta `estudiantes-mapa` en `C:\xampp\htdocs\`.
-2. Abrir el XAMPP Control Panel e iniciar Apache.
-3. Abrir `http://localhost/estudiantes-mapa/`.
+1. Instalar y abrir XAMPP.
+2. Descargar o clonar el repositorio del proyecto.
+3. Copiar la carpeta `estudiantes-mapa` dentro de `C:\xampp\htdocs\`.
+4. Abrir el Panel de Control de XAMPP.
+5. Iniciar el servicio **Apache**. No es necesario iniciar MySQL.
+6. Abrir el navegador web.
+7. Ingresar a la siguiente dirección:
 
-## Ubicación de los archivos
+   `http://localhost/estudiantes-mapa/`
 
-```
-C:\xampp\htdocs\estudiantes-mapa\
-├── index.php
-├── css\         styles.css
-├── models\        Persona.php, Estudiante.php, MapaEstudiantes.php
-├── views\         formulario.php
-├── controllers\   EstudianteController.php
-├── data\          estudiantes.json
-└── README.md
-```
+8. Se mostrará el formulario de registro de estudiantes.
+9. Completar los datos solicitados para registrar un estudiante.
+10. Utilizar las direcciones de consulta para visualizar los estudiantes registrados.
 
-## Peticiones
+## Registro y consulta de estudiantes (GET y POST)
 
-URL base: `http://localhost/estudiantes-mapa/index.php?accion=estudiantes`
+Para utilizar el sistema, ingresar desde el navegador a:
 
-**GET (todos):**
+`http://localhost/estudiantes-mapa/`
 
-```
-http://localhost/estudiantes-mapa/index.php?accion=estudiantes
-```
+### Registro de estudiantes (POST)
 
-**GET (por código):**
+El registro se realiza desde el formulario web, completando los datos solicitados y presionando el botón de registro.
 
-```
-http://localhost/estudiantes-mapa/index.php?accion=estudiantes&codigo=SIS10093072
-```
+El sistema valida los datos recibidos y guarda la información del estudiante en el archivo JSON del proyecto.
 
-**POST (registrar):** enviar los campos `nombre`, `apellido`, `edad`, `codigo` y `carrera` como `form-data` o `x-www-form-urlencoded`.
+### Consulta de estudiantes (GET)
 
-```bash
-curl -X POST "http://localhost/estudiantes-mapa/index.php?accion=estudiantes" \
-  -d "nombre=Ana&apellido=Rojas&edad=19&codigo=654321&carrera=Ingenieria Civil"
-```
+Las consultas se realizan mediante las siguientes direcciones:
 
-Respuesta correcta (201):
+- **Consultar todos los estudiantes:**
 
-```json
-{
-    "exito": true,
-    "mensaje": "Estudiante registrado correctamente.",
-    "estudiante": {
-        "codigo": "654321",
-        "nombre": "Ana",
-        "apellido": "Rojas",
-        "edad": 19,
-        "carrera": "Ingenieria Civil"
-    }
-}
-```
+  `http://localhost/estudiantes-mapa/index.php?accion=estudiantes`
 
-Respuestas de error: 400 (datos faltantes o inválidos), 404 (código no encontrado), 409 (código duplicado).
+- **Consultar un estudiante por código:**
 
-## Validaciones
+  `http://localhost/estudiantes-mapa/index.php?accion=estudiantes&codigo=SIS10093072`
 
-El formulario valida en el navegador y el servidor vuelve a validar cada dato en el controlador.
+Las consultas GET permiten obtener la información de los estudiantes registrados en el sistema.
 
-| Campo | Regla |
-|-------|-------|
-| nombre | Obligatorio, solo letras y espacios, 2 a 50 caracteres |
-| apellido | Obligatorio, solo letras y espacios, 2 a 50 caracteres |
-| edad | Obligatoria, número entero entre 15 y 100 |
-| codigo | Obligatorio, letras, números o guion, 3 a 15 caracteres, único |
-| carrera | Obligatoria, solo letras y espacios, 3 a 60 caracteres |
+## Almacenamiento de datos
 
-Si algún dato es inválido, la respuesta es 400 con el detalle de cada error en `errores`:
+Los estudiantes registrados se almacenan en el archivo:
 
-```json
-{
-    "exito": false,
-    "mensaje": "Datos inválidos.",
-    "errores": {
-        "edad": "La edad es obligatoria y debe ser un número entero entre 15 y 100."
-    }
-}
-```
+`data/estudiantes.json`
 
-## Formulario web
+La información se mantiene guardada en el archivo JSON para futuras consultas.
 
-1. Abrir `http://localhost/estudiantes-mapa/`.
-2. Completar los campos y pulsar **Registrar (POST)**. El navegador muestra la respuesta JSON del servidor.
-3. Volver atrás y pulsar **Consultar (GET)** para ver los estudiantes registrados.
+## Repositorio
 
-El formulario es HTML y PHP puros, sin JavaScript.
+[EDA311_Mapas_Herencia](https://github.com/Valerfy/EDA311_Mapas_Herencia)
+
+## Autor
+
+**Matías Valero Fernández**
+
+Código de estudiante: SIS10093072

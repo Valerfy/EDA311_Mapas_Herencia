@@ -12,7 +12,7 @@ class RepositorioEstudiantes
 
     public static function estudianteInicial(): Estudiante
     {
-        return new Estudiante('Juan', 'Pérez', 20, '123456', 'Ingeniería de Sistemas');
+        return new Estudiante('Matias', 'Valero Fernandez', 19, 'SIS10093072', 'Ingeniería de Sistemas');
     }
 
     public function cargar(): MapaEstudiantes

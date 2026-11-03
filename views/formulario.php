@@ -13,7 +13,7 @@
 
     <div class="tarjeta">
       <h2>Nuevo estudiante</h2>
-      <form id="formulario">
+      <form method="post" action="index.php?accion=estudiantes">
         <div class="campo">
           <label for="nombre">Nombre</label>
           <input id="nombre" name="nombre" required minlength="2" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü ]{2,50}" title="Solo letras y espacios (2 a 50 caracteres)">
@@ -36,34 +36,12 @@
         </div>
         <div class="botones">
           <button type="submit" class="btn-post">Registrar (POST)</button>
-          <button type="button" id="btnListar" class="btn-get">Consultar (GET)</button>
+          <a class="btn-get" href="index.php?accion=estudiantes">Consultar (GET)</a>
         </div>
       </form>
     </div>
 
-    <div class="tarjeta">
-      <h2>Respuesta</h2>
-      <pre id="resultado">Aún no hay respuesta.</pre>
-    </div>
   </div>
 
-  <script>
-    const url = 'index.php?accion=estudiantes';
-    const resultado = document.getElementById('resultado');
-
-    async function mostrar(respuesta) {
-      resultado.className = respuesta.ok ? 'ok' : 'error';
-      resultado.textContent = 'HTTP ' + respuesta.status + '\n' + JSON.stringify(await respuesta.json(), null, 2);
-    }
-
-    document.getElementById('formulario').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      mostrar(await fetch(url, { method: 'POST', body: new FormData(e.target) }));
-    });
-
-    document.getElementById('btnListar').addEventListener('click', async () => {
-      mostrar(await fetch(url));
-    });
-  </script>
 </body>
 </html>

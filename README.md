@@ -45,7 +45,7 @@ http://localhost/estudiantes-mapa/index.php?accion=estudiantes
 **GET (por código):**
 
 ```
-http://localhost/estudiantes-mapa/index.php?accion=estudiantes&codigo=123456
+http://localhost/estudiantes-mapa/index.php?accion=estudiantes&codigo=CAMBIAR-CODIGO
 ```
 
 **POST (registrar):** enviar los campos `nombre`, `apellido`, `edad`, `codigo` y `carrera` como `form-data` o `x-www-form-urlencoded`.
@@ -100,5 +100,7 @@ Si algún dato es inválido, la respuesta es 400 con el detalle de cada error en
 ## Formulario web
 
 1. Abrir `http://localhost/estudiantes-mapa/`.
-2. Completar los campos y pulsar **Registrar (POST)**.
-3. Pulsar **Consultar (GET)** para ver los estudiantes registrados.
+2. Completar los campos y pulsar **Registrar (POST)**. El navegador muestra la respuesta JSON del servidor.
+3. Volver atrás y pulsar **Consultar (GET)** para ver los estudiantes registrados.
+
+El formulario es HTML y PHP puros, sin JavaScript.

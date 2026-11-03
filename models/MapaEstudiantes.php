@@ -8,7 +8,7 @@ class MapaEstudiantes
 
     public function __construct(private string $archivo)
     {
-        $inicial = new Estudiante('Matias', 'Valero', 19, 'SIS10093072', 'Ingeniería de Sistemas');
+        $inicial = new Estudiante('Matías', 'Valero Fernández', 21, 'CAMBIAR-CODIGO', 'Ingeniería de Sistemas');
         $this->codigoInicial = $inicial->getCodigo();
         $this->agregar($inicial);
 

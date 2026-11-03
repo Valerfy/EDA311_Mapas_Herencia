@@ -14,24 +14,29 @@ Aplicación web desarrollada en PHP para el registro y consulta de estudiantes u
 ## Pasos para ejecutar el proyecto
 
 1. Instalar y abrir XAMPP.
-2. Descargar o clonar el repositorio del proyecto.
-3. Copiar la carpeta `estudiantes-mapa` dentro de `C:\xampp\htdocs\`.
+2. Descargar el proyecto desde GitHub o clonarlo utilizando el siguiente comando:
+
+   ```bash
+   git clone https://github.com/Valerfy/EDA311_Mapas_Herencia.git
+   ```
+
+3. Si se descargó mediante Git, copiar la carpeta `EDA311_Mapas_Herencia` dentro de `C:\xampp\htdocs\`. Si se descargó como ZIP, extraerla y colocarla allí.
 4. Abrir el Panel de Control de XAMPP.
 5. Iniciar el servicio **Apache**. No es necesario iniciar MySQL.
 6. Abrir el navegador web.
 7. Ingresar a la siguiente dirección:
 
-   `http://localhost/estudiantes-mapa/`
+   `http://localhost/EDA311_Mapas_Herencia/`
 
 8. Se mostrará el formulario de registro de estudiantes.
 9. Completar los datos solicitados para registrar un estudiante.
-10. Utilizar las direcciones de consulta para visualizar los estudiantes registrados.
+10. Utilizar las opciones de registro y consulta para comprobar el funcionamiento del sistema.
 
 ## Registro y consulta de estudiantes (GET y POST)
 
 Para utilizar el sistema, ingresar desde el navegador a:
 
-`http://localhost/estudiantes-mapa/`
+`http://localhost/EDA311_Mapas_Herencia/`
 
 ### Registro de estudiantes (POST)
 
@@ -41,15 +46,15 @@ El sistema valida los datos recibidos y guarda la información del estudiante en
 
 ### Consulta de estudiantes (GET)
 
-Las consultas se realizan mediante las siguientes direcciones:
+Las consultas se realizan mediante peticiones GET, utilizando las siguientes direcciones:
 
 - **Consultar todos los estudiantes:**
 
-  `http://localhost/estudiantes-mapa/index.php?accion=estudiantes`
+  `http://localhost/EDA311_Mapas_Herencia/index.php?accion=estudiantes`
 
 - **Consultar un estudiante por código:**
 
-  `http://localhost/estudiantes-mapa/index.php?accion=estudiantes&codigo=SIS10093072`
+  `http://localhost/EDA311_Mapas_Herencia/index.php?accion=estudiantes&codigo=SIS10093072`
 
 Las consultas GET permiten obtener la información de los estudiantes registrados en el sistema.
 
@@ -59,11 +64,11 @@ Los estudiantes registrados se almacenan en el archivo:
 
 `data/estudiantes.json`
 
-La información se mantiene guardada en el archivo JSON para futuras consultas.
+La información se mantiene guardada en este archivo JSON para futuras consultas.
 
 ## Repositorio
 
-[EDA311_Mapas_Herencia](https://github.com/Valerfy/EDA311_Mapas_Herencia)
+[EDA311_Mapas_Herencia en GitHub](https://github.com/Valerfy/EDA311_Mapas_Herencia)
 
 ## Autor
 
